@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Dropdowns, radioButtons, checkboxes">
+    <test name="Dropdowns, radioButtons, checkboxes tests">
+        <classes>
+            <class name="testCases.OptionsTests"/>
+        </classes>
+    </test>
+</suite>

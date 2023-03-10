@@ -8,37 +8,36 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AccordionItemsPage extends BasePage {
   @FindBy(id = "hidden-text")
   private WebElement loadItem;
-
   @FindBy(id = "click-accordion")
-  private WebElement keepClickingItem;
+  private WebElement accordionItem4;
 
   @FindBy(id = "manual-testing-accordion")
-  private WebElement manualTestingItem;
+  private WebElement accordionItem1;
 
   @FindBy(xpath = "//*[@id='timeout']")
-  private WebElement KeepClickingItemPanel;
+  private WebElement panelAccordionItem4;
 
   @FindBy(css = "#manual-testing-description")
-  private WebElement ManualTestingItemPanel;
+  private WebElement panelAccordionItem1;
 
   public AccordionItemsPage(WebDriver driver) {
     super(driver);
   }
 
-  public void clickOnKeepClickingItem() {
-    keepClickingItem.click();
+  public void clickOnAccordionItem4() {
+    accordionItem4.click();
   }
 
-  public void clickOnManualTestingItem() {
-    manualTestingItem.click();
+  public void clickOnAccordionItem1() {
+    accordionItem1.click();
   }
 
-  public String getKeepClickingItemText() {
-    return KeepClickingItemPanel.getText();
+  public String getPanelAccordionItem4Text() {
+    return panelAccordionItem4.getText();
   }
 
-  public String getManualTestingItemText() {
-    return ManualTestingItemPanel.getText();
+  public String getPanelAccordionItem1Text() {
+    return panelAccordionItem1.getText();
   }
 
   public void waitVisibilityOfLoadText(String text) {

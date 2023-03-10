@@ -2,9 +2,7 @@ package manager;
 
 import org.openqa.selenium.WebDriver;
 import pages.AccordionItemsPage;
-import pages.ActionsPage;
-import pages.LoginPortalPage;
-import pages.PopupAndAlertsPage;
+import pages.AlertAndPopupPage;
 import pages.OptionsPage;
 import pages.HomePage;
 
@@ -19,23 +17,15 @@ public class PageFactoryManager {
     return new HomePage(driver);
   }
 
-  public PopupAndAlertsPage getPopupAndAlertsPage() {
-    return new PopupAndAlertsPage(driver);
+  public AlertAndPopupPage getAlertAndPopupPage() {
+    return new AlertAndPopupPage(driver);
   }
 
-  public AccordionItemsPage getAccordionItemsPage() {
+  public AccordionItemsPage getAccordianPage() {
     return new AccordionItemsPage(driver);
   }
 
-  public OptionsPage getOptionsPage() {
+  public OptionsPage getDropdownPage() {
     return new OptionsPage(driver);
-  }
-
-  public LoginPortalPage getLoginPortalPage() {
-    return new LoginPortalPage(driver);
-  }
-
-  public ActionsPage getActionsPage() {
-    return new ActionsPage(driver);
   }
 }
