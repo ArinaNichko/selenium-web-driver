@@ -9,8 +9,10 @@ import org.openqa.selenium.support.ui.Select;
 public class OptionsPage extends BasePage {
   @FindBy(id = "dropdowm-menu-1")
   private WebElement dropdownMenu1;
+
   @FindBy(id = "dropdowm-menu-2")
   private WebElement dropdownMenu2;
+
   @FindBy(xpath = "//*[@value=\"testng\"]")
   private WebElement optionInDropdownMenu2;
 
