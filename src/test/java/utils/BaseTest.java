@@ -1,39 +1,45 @@
 package utils;
 
+import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
+
 import manager.PageFactoryManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import pages.AccordionItemsPage;
 import pages.AlertAndPopupPage;
+import pages.OptionsPage;
 import pages.HomePage;
 
-import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
-
 public class BaseTest {
-  static PageFactoryManager pageFactoryManager;
+  final protected int FIRST = 1;
+  final protected int TIMEOUT = 15;
   protected static HomePage homePage;
   protected static AlertAndPopupPage alertAndPopupPage;
+  protected static AccordionItemsPage accordionItemsPage;
+  protected static OptionsPage dropdownPage;
+  protected static PageFactoryManager pageFactoryManager;
+  protected static WebDriver driver;
 
- protected WebDriver driver;
-
-
-
-  @BeforeClass
+  @BeforeMethod
   public void TestSetUp() {
     chromedriver().setup();
     driver = new ChromeDriver();
     driver.manage().window().maximize();
     pageFactoryManager = new PageFactoryManager(driver);
-    homePage = pageFactoryManager.getHomePage();
-    alertAndPopupPage = pageFactoryManager.getAlertAndPopupPage();
-
+    initPages();
   }
 
-  @AfterClass
+  public void initPages() {
+    homePage = pageFactoryManager.getHomePage();
+    alertAndPopupPage = pageFactoryManager.getAlertAndPopupPage();
+    accordionItemsPage = pageFactoryManager.getAccordianPage();
+    dropdownPage = pageFactoryManager.getDropdownPage();
+  }
+
+  @AfterMethod
   public void tearDown() {
     driver.quit();
   }
-
-
 }

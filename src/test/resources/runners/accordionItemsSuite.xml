@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Accordion items" >
+    <test name="AAccordion items tests">
+        <classes>
+            <class name="testCases.AccordionItemsTests"/>
+        </classes>
+    </test>
+</suite>
