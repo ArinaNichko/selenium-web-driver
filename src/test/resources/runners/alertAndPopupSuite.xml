@@ -2,7 +2,7 @@
 <suite name="Alert and Popup" >
     <test name="Alert and popup tests">
         <classes>
-            <class name="testCases.AlertAndPopupTests"/>
+            <class name="testCases.PopupAndAlertsTests"/>
         </classes>
     </test>
 </suite>

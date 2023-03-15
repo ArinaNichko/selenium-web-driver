@@ -10,7 +10,7 @@ public class OptionsTests extends BaseTest {
   @Test
   public void checkJavaDropdownMenu() {
     homePage.openHomePage();
-    homePage.clickOnDropdownLink();
+    homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
@@ -23,7 +23,7 @@ public class OptionsTests extends BaseTest {
   @Test
   public void checkEclipseDropdownMenu() {
     homePage.openHomePage();
-    homePage.clickOnDropdownLink();
+    homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
@@ -39,7 +39,7 @@ public class OptionsTests extends BaseTest {
   @Test
   public void checkGreenRadioButton() {
     homePage.openHomePage();
-    homePage.clickOnDropdownLink();
+    homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
@@ -52,7 +52,7 @@ public class OptionsTests extends BaseTest {
   @Test
   public void checkCheckboxes() {
     homePage.openHomePage();
-    homePage.clickOnDropdownLink();
+    homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));

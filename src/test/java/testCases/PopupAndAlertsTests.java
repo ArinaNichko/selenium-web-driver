@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import utils.BaseTest;
 import java.util.List;
 
-public class AlertAndPopupTests extends BaseTest {
+public class PopupAndAlertsTests extends BaseTest {
 
   @Test
   public void checkAlert(){
@@ -16,12 +16,12 @@ public class AlertAndPopupTests extends BaseTest {
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    alertAndPopupPage.clickOnAlertButton();
+    popupAndAlertsPage.clickOnAlertButton();
 
-    Alert alert = alertAndPopupPage.switchToAlert();
-    String getAlertMessage = alertAndPopupPage.getAlertText(alert);
+    Alert alert = popupAndAlertsPage.switchToAlert();
+    String getAlertMessage = popupAndAlertsPage.getAlertText(alert);
 
-    alertAndPopupPage.acceptAlert(alert);
+    popupAndAlertsPage.acceptAlert(alert);
 
     Assert.assertEquals(getAlertMessage, "I am an alert box!");
   }
@@ -34,13 +34,13 @@ public class AlertAndPopupTests extends BaseTest {
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    alertAndPopupPage.implicitWait(TIMEOUT);
-    alertAndPopupPage.clickOnPopupButton();
+    popupAndAlertsPage.implicitWait(TIMEOUT);
+    popupAndAlertsPage.clickOnPopupButton();
 
-    alertAndPopupPage.waitVisibilityOfPopup();
-    alertAndPopupPage.clickOnClosePopupButton();
+    popupAndAlertsPage.waitVisibilityOfPopup();
+    popupAndAlertsPage.clickOnClosePopupButton();
 
-    Assert.assertEquals(alertAndPopupPage.getPopupTitle(),
+    Assert.assertEquals(popupAndAlertsPage.getPopupTitle(),
             "It’s that Easy!! Well I think it is.....");
   }
 }

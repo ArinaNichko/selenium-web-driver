@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.AccordionItemsPage;
-import pages.AlertAndPopupPage;
+import pages.PopupAndAlertsPage;
 import pages.OptionsPage;
 import pages.HomePage;
 
@@ -16,7 +16,7 @@ public class BaseTest {
   final protected int FIRST = 1;
   final protected int TIMEOUT = 15;
   protected static HomePage homePage;
-  protected static AlertAndPopupPage alertAndPopupPage;
+  protected static PopupAndAlertsPage popupAndAlertsPage;
   protected static AccordionItemsPage accordionItemsPage;
   protected static OptionsPage optionsPage;
   protected static PageFactoryManager pageFactoryManager;
@@ -33,7 +33,7 @@ public class BaseTest {
 
   public void initPages() {
     homePage = pageFactoryManager.getHomePage();
-    alertAndPopupPage = pageFactoryManager.getAlertAndPopupPage();
+    popupAndAlertsPage = pageFactoryManager.getAlertAndPopupPage();
     accordionItemsPage = pageFactoryManager.getAccordianPage();
     optionsPage = pageFactoryManager.getDropdownPage();
   }
