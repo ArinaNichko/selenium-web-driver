@@ -4,7 +4,7 @@ import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
-import java.util.ArrayList;
+import java.util.List;
 
 public class AlertAndPopupTests extends BaseTest {
 
@@ -13,7 +13,7 @@ public class AlertAndPopupTests extends BaseTest {
     homePage.openHomePage();
     homePage.clickOnPopupAndAlertsLink();
 
-    ArrayList<String> tabsList = homePage.tabsList();
+    List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
     alertAndPopupPage.clickOnAlertButton();
@@ -31,7 +31,7 @@ public class AlertAndPopupTests extends BaseTest {
     homePage.openHomePage();
     homePage.clickOnPopupAndAlertsLink();
 
-    ArrayList<String> tabsList = homePage.tabsList();
+    List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
     alertAndPopupPage.implicitWait(TIMEOUT);

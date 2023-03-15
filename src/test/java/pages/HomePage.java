@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
   @FindBy(css = "#popup-alerts")
   private WebElement popupAndAlertLink;
 
-  @FindBy(xpath = "(//*[@id='page-object-model'])[last()]")
+  @FindBy(xpath = "//h1[contains(text(),'ACCORDION')] ")
   private WebElement accordionLink;
 
   public HomePage(WebDriver driver) {
@@ -32,7 +32,7 @@ public class HomePage extends BasePage {
     popupAndAlertLink.click();
   }
 
-  public void clickOnAccordionLink() {
+  public void clickOnAccordionItemsLink() {
     accordionLink.click();
   }
 }

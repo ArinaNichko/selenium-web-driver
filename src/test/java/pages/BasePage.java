@@ -3,12 +3,14 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
-  private final long TIMEOUT = 15;
   protected final WebDriverWait WAIT;
+  private final long TIMEOUT = 15;
   protected WebDriver driver;
 
   public BasePage(WebDriver driver) {
@@ -17,7 +19,7 @@ public class BasePage {
     PageFactory.initElements(driver, this);
   }
 
-  public ArrayList<String> tabsList() {
+  public List<String> tabsList() {
     return new ArrayList<>(driver.getWindowHandles());
   }
 
