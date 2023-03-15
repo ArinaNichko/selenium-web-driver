@@ -3,35 +3,36 @@ package testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class AccordionItemsTests extends BaseTest {
 
   @Test
-  public void checkAccordionItemsBelowAfter5Sec() {
+  public void checkKeepClickingItem() {
     homePage.openHomePage();
-    homePage.clickOnAccordionLink();
+    homePage.clickOnAccordionItemsLink();
 
-    ArrayList<String> tabsList = homePage.tabsList();
+    List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
     accordionItemsPage.waitVisibilityOfLoadText("LOADING COMPLETE.");
-    accordionItemsPage.clickOnAccordionItem4();
+    accordionItemsPage.clickOnKeepClickingItem();
 
-    Assert.assertEquals(accordionItemsPage.getPanelAccordionItem4Text(),
+    Assert.assertEquals(accordionItemsPage.getKeepClickingItemText(),
             "This text has appeared after 5 seconds!");
   }
 
   @Test
-  public void checkAccordionItemsBelow() {
+  public void checkManualTestingItem() {
     homePage.openHomePage();
-    homePage.clickOnAccordionLink();
+    homePage.clickOnAccordionItemsLink();
 
-    ArrayList<String> tabsList = homePage.tabsList();
+    List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    accordionItemsPage.clickOnAccordionItem1();
+    accordionItemsPage.clickOnManualTestingItem();
 
-    Assert.assertTrue(accordionItemsPage.getPanelAccordionItem1Text().contains("Manual testing has for some time"));
+    Assert.assertTrue(accordionItemsPage.getManualTestingItemText().contains("Manual testing has for some time"));
   }
 }

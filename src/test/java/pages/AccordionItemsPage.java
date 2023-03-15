@@ -9,35 +9,35 @@ public class AccordionItemsPage extends BasePage {
   @FindBy(id = "hidden-text")
   private WebElement loadItem;
   @FindBy(id = "click-accordion")
-  private WebElement accordionItem4;
+  private WebElement keepClickingItem;
 
   @FindBy(id = "manual-testing-accordion")
-  private WebElement accordionItem1;
+  private WebElement manualTestingItem;
 
   @FindBy(xpath = "//*[@id='timeout']")
-  private WebElement panelAccordionItem4;
+  private WebElement panelKeepClickingItem;
 
   @FindBy(css = "#manual-testing-description")
-  private WebElement panelAccordionItem1;
+  private WebElement panelManualTestingItem;
 
   public AccordionItemsPage(WebDriver driver) {
     super(driver);
   }
 
-  public void clickOnAccordionItem4() {
-    accordionItem4.click();
+  public void clickOnKeepClickingItem() {
+    keepClickingItem.click();
   }
 
-  public void clickOnAccordionItem1() {
-    accordionItem1.click();
+  public void clickOnManualTestingItem() {
+    manualTestingItem.click();
   }
 
-  public String getPanelAccordionItem4Text() {
-    return panelAccordionItem4.getText();
+  public String getKeepClickingItemText() {
+    return panelKeepClickingItem.getText();
   }
 
-  public String getPanelAccordionItem1Text() {
-    return panelAccordionItem1.getText();
+  public String getManualTestingItemText() {
+    return panelManualTestingItem.getText();
   }
 
   public void waitVisibilityOfLoadText(String text) {

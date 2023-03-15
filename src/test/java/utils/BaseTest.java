@@ -18,7 +18,7 @@ public class BaseTest {
   protected static HomePage homePage;
   protected static AlertAndPopupPage alertAndPopupPage;
   protected static AccordionItemsPage accordionItemsPage;
-  protected static OptionsPage dropdownPage;
+  protected static OptionsPage optionsPage;
   protected static PageFactoryManager pageFactoryManager;
   protected static WebDriver driver;
 
@@ -35,7 +35,7 @@ public class BaseTest {
     homePage = pageFactoryManager.getHomePage();
     alertAndPopupPage = pageFactoryManager.getAlertAndPopupPage();
     accordionItemsPage = pageFactoryManager.getAccordianPage();
-    dropdownPage = pageFactoryManager.getDropdownPage();
+    optionsPage = pageFactoryManager.getDropdownPage();
   }
 
   @AfterMethod
