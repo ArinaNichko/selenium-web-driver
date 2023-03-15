@@ -17,11 +17,11 @@ public class PageFactoryManager {
     return new HomePage(driver);
   }
 
-  public PopupAndAlertsPage getAlertAndPopupPage() {
+  public PopupAndAlertsPage getPopupAndAlertsPage() {
     return new PopupAndAlertsPage(driver);
   }
 
-  public AccordionItemsPage getAccordianPage() {
+  public AccordionItemsPage getAccordionItemsPage() {
     return new AccordionItemsPage(driver);
   }
 

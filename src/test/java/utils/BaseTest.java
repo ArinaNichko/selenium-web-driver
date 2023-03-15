@@ -33,8 +33,8 @@ public class BaseTest {
 
   public void initPages() {
     homePage = pageFactoryManager.getHomePage();
-    popupAndAlertsPage = pageFactoryManager.getAlertAndPopupPage();
-    accordionItemsPage = pageFactoryManager.getAccordianPage();
+    popupAndAlertsPage = pageFactoryManager.getPopupAndAlertsPage();
+    accordionItemsPage = pageFactoryManager.getAccordionItemsPage();
     optionsPage = pageFactoryManager.getDropdownPage();
   }
 
