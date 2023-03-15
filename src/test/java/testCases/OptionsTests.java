@@ -3,65 +3,65 @@ package testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
-import java.util.ArrayList;
+import java.util.List;
 
 public class OptionsTests extends BaseTest {
 
   @Test
-  public void checkDropdownMenu1() {
+  public void checkJavaDropdownMenu() {
     homePage.openHomePage();
     homePage.clickOnDropdownLink();
 
-    ArrayList<String> newTab = homePage.tabsList();
+    List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    dropdownPage.selectOption("python");
+    optionsPage.selectOption("python");
 
-    Assert.assertEquals(dropdownPage.getSelectedOptionText(), "Python");
+    Assert.assertEquals(optionsPage.getSelectedOptionText(), "Python");
   }
 
   @Test
-  public void checkDropdownMenu2() {
+  public void checkEclipseDropdownMenu() {
     homePage.openHomePage();
     homePage.clickOnDropdownLink();
 
-    ArrayList<String> newTab = homePage.tabsList();
+    List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    dropdownPage.clickOnDropdownMenu2();
+    optionsPage.clickOnEclipseDropdownMenu();
 
-    dropdownPage.waitVisibilityOfDropdownOption();
-    dropdownPage.clickOnOptionInDropdown2();
+    optionsPage.waitVisibilityOfTestngOption();
+    optionsPage.clickOnTestngOption();
 
-    Assert.assertEquals(dropdownPage.getOptionDropdownText(), "TestNG");
+    Assert.assertEquals(optionsPage.getTestngOptionText(), "TestNG");
   }
 
   @Test
-  public void checkRadioButton() {
+  public void checkGreenRadioButton() {
     homePage.openHomePage();
     homePage.clickOnDropdownLink();
 
-    ArrayList<String> newTab = homePage.tabsList();
+    List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    dropdownPage.clickOnRadioButton1();
+    optionsPage.clickOnGreenRadioButton();
 
-    Assert.assertEquals(dropdownPage.getRadioButton1Value(), "green");
+    Assert.assertEquals(optionsPage.getGreenRadioButtonValue(), "green");
   }
 
   @Test
-  public void checkCheckBox() {
+  public void checkCheckboxes() {
     homePage.openHomePage();
     homePage.clickOnDropdownLink();
 
-    ArrayList<String> newTab = homePage.tabsList();
+    List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    dropdownPage.clickOnCheckbox1();
-    dropdownPage.clickOnCheckbox2();
-    dropdownPage.clickOnCheckbox3();
+    optionsPage.clickOnFirstOptionCheckbox();
+    optionsPage.clickOnSecondOptionCheckbox();
+    optionsPage.clickOnThirdOptionCheckbox();
 
-    Assert.assertTrue(dropdownPage.isSelectedCheckbox1() &&
-            dropdownPage.isSelectedCheckbox2() && dropdownPage.isNotSelectedCheckbox3());
+    Assert.assertTrue(optionsPage.isSelectedFirstOptionCheckbox() &&
+            optionsPage.isSelectedSecondOptionCheckbox() && optionsPage.isNotSelectedThirdOptionCheckbox());
   }
 }

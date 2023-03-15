@@ -8,89 +8,89 @@ import org.openqa.selenium.support.ui.Select;
 
 public class OptionsPage extends BasePage {
   @FindBy(id = "dropdowm-menu-1")
-  private WebElement dropdownMenu1;
+  private WebElement javaDropdownMenu;
 
   @FindBy(id = "dropdowm-menu-2")
-  private WebElement dropdownMenu2;
+  private WebElement eclipseDropdownMenu;
 
   @FindBy(xpath = "//*[@value=\"testng\"]")
-  private WebElement optionInDropdownMenu2;
+  private WebElement testngOption;
 
   @FindBy(xpath = "//*[@value=\"green\"]")
-  private WebElement radioButton1;
+  private WebElement greenRadioButton;
 
   @FindBy(xpath = "//*[@value=\"option-1\"]")
-  private WebElement checkbox1;
+  private WebElement firstOptionCheckbox;
 
   @FindBy(xpath = "//*[@value=\"option-2\"]")
-  private WebElement checkbox2;
+  private WebElement secondOptionCheckbox;
 
   @FindBy(xpath = "//*[@value=\"option-3\"]")
-  private WebElement checkbox3;
+  private WebElement thirdOptionCheckbox;
 
   public OptionsPage(WebDriver driver) {
     super(driver);
   }
 
-  public Select createSelectDropdownMenu1() {
-    return new Select(dropdownMenu1);
+  public Select createSelectJavaDropdownMenu() {
+    return new Select(javaDropdownMenu);
   }
 
   public void selectOption(String option) {
-    createSelectDropdownMenu1().selectByValue(option);
+    createSelectJavaDropdownMenu().selectByValue(option);
   }
 
   public String getSelectedOptionText() {
-    return createSelectDropdownMenu1().getFirstSelectedOption().getText();
+    return createSelectJavaDropdownMenu().getFirstSelectedOption().getText();
   }
 
-  public void clickOnDropdownMenu2() {
-    dropdownMenu2.click();
+  public void clickOnEclipseDropdownMenu() {
+    eclipseDropdownMenu.click();
   }
 
-  public void clickOnOptionInDropdown2() {
-    optionInDropdownMenu2.click();
+  public void clickOnTestngOption() {
+    testngOption.click();
   }
 
-  public String getOptionDropdownText() {
-    return optionInDropdownMenu2.getText();
+  public String getTestngOptionText() {
+    return testngOption.getText();
   }
 
-  public void clickOnRadioButton1() {
-    radioButton1.click();
+  public void clickOnGreenRadioButton() {
+    greenRadioButton.click();
   }
 
-  public String getRadioButton1Value() {
-    return radioButton1.getAttribute("value");
+  public String getGreenRadioButtonValue() {
+    return greenRadioButton.getAttribute("value");
   }
 
-  public void clickOnCheckbox1() {
-    checkbox1.click();
+  public void clickOnFirstOptionCheckbox() {
+    firstOptionCheckbox.click();
   }
 
-  public void clickOnCheckbox2() {
-    checkbox2.click();
+  public void clickOnSecondOptionCheckbox() {
+    secondOptionCheckbox.click();
   }
 
-  public void clickOnCheckbox3() {
-    checkbox3.click();
+  public void clickOnThirdOptionCheckbox() {
+    thirdOptionCheckbox.click();
   }
 
-  public boolean isSelectedCheckbox1() {
-    return checkbox1.isSelected();
+  public boolean isSelectedFirstOptionCheckbox() {
+    return firstOptionCheckbox.isSelected();
   }
 
-  public boolean isSelectedCheckbox2() {
-    return checkbox2.isSelected();
+  public boolean isSelectedSecondOptionCheckbox() {
+    return secondOptionCheckbox.isSelected();
   }
 
-  public boolean isNotSelectedCheckbox3() {
-    return !(checkbox3.isSelected());
+  public boolean isNotSelectedThirdOptionCheckbox() {
+    return !(thirdOptionCheckbox.isSelected());
   }
 
-  public void waitVisibilityOfDropdownOption() {
+  public void waitVisibilityOfTestngOption() {
     WAIT.until(
-            ExpectedConditions.visibilityOf(optionInDropdownMenu2));
+            ExpectedConditions.visibilityOf(testngOption));
   }
 }
 
