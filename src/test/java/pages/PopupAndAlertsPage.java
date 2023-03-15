@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class AlertAndPopupPage extends BasePage {
+public class PopupAndAlertsPage extends BasePage {
   @FindBy(xpath = "//*[@id=\"button1\"]")
   private WebElement alertButton;
   @FindBy(id = "button2")
@@ -16,7 +16,7 @@ public class AlertAndPopupPage extends BasePage {
   @FindBy(xpath = "//h4")
   private WebElement popupTitle;
 
-  public AlertAndPopupPage(WebDriver driver) {
+  public PopupAndAlertsPage(WebDriver driver) {
     super(driver);
   }
 

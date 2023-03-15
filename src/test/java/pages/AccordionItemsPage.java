@@ -15,10 +15,10 @@ public class AccordionItemsPage extends BasePage {
   private WebElement manualTestingItem;
 
   @FindBy(xpath = "//*[@id='timeout']")
-  private WebElement panelKeepClickingItem;
+  private WebElement KeepClickingItemPanel;
 
   @FindBy(css = "#manual-testing-description")
-  private WebElement panelManualTestingItem;
+  private WebElement ManualTestingItemPanel;
 
   public AccordionItemsPage(WebDriver driver) {
     super(driver);
@@ -33,11 +33,11 @@ public class AccordionItemsPage extends BasePage {
   }
 
   public String getKeepClickingItemText() {
-    return panelKeepClickingItem.getText();
+    return KeepClickingItemPanel.getText();
   }
 
   public String getManualTestingItemText() {
-    return panelManualTestingItem.getText();
+    return ManualTestingItemPanel.getText();
   }
 
   public void waitVisibilityOfLoadText(String text) {
