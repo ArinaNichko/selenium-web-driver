@@ -8,12 +8,12 @@ public class HomePage extends BasePage {
   final String URL = "https://www.webdriveruniversity.com/";
 
   @FindBy(id = "dropdown-checkboxes-radiobuttons")
-  private WebElement dropdownLink;
+  private WebElement optionsLink;
 
   @FindBy(css = "#popup-alerts")
   private WebElement popupAndAlertLink;
 
-  @FindBy(xpath = "//h1[contains(text(),'ACCORDION')] ")
+  @FindBy(xpath = "//h1[contains(text(),'ACCORDION')]")
   private WebElement accordionLink;
 
   public HomePage(WebDriver driver) {
@@ -24,8 +24,8 @@ public class HomePage extends BasePage {
     driver.get(URL);
   }
 
-  public void clickOnDropdownLink() {
-    dropdownLink.click();
+  public void clickOnOptionsLink() {
+    optionsLink.click();
   }
 
   public void clickOnPopupAndAlertsLink() {
