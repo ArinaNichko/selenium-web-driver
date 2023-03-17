@@ -2,6 +2,8 @@ package manager;
 
 import org.openqa.selenium.WebDriver;
 import pages.AccordionItemsPage;
+import pages.ActionsPage;
+import pages.LoginPortalPage;
 import pages.PopupAndAlertsPage;
 import pages.OptionsPage;
 import pages.HomePage;
@@ -27,5 +29,13 @@ public class PageFactoryManager {
 
   public OptionsPage getDropdownPage() {
     return new OptionsPage(driver);
+  }
+
+  public LoginPortalPage getLoginPortalPage() {
+    return new LoginPortalPage(driver);
+  }
+
+  public ActionsPage getActionsPage() {
+    return new ActionsPage(driver);
   }
 }

@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,18 +33,6 @@ public class PopupAndAlertsPage extends BasePage {
 
   public void clickOnPopupButton() {
     popupButton.click();
-  }
-
-  public Alert switchToAlert() {
-    return driver.switchTo().alert();
-  }
-
-  public String getAlertText(Alert alert) {
-    return alert.getText();
-  }
-
-  public void acceptAlert(Alert alert) {
-    alert.accept();
   }
 
   public void waitVisibilityOfPopup() {

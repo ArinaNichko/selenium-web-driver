@@ -14,7 +14,13 @@ public class HomePage extends BasePage {
   private WebElement popupAndAlertsLink;
 
   @FindBy(xpath = "//h1[contains(text(),'ACCORDION')]")
-  private WebElement accordionItemLink;
+  private WebElement accordionItemsLink;
+
+  @FindBy(css = "#login-portal")
+  private WebElement loginPortalLink;
+
+  @FindBy(css = "#actions")
+  private WebElement actionsLink;
 
   public HomePage(WebDriver driver) {
     super(driver);
@@ -25,14 +31,21 @@ public class HomePage extends BasePage {
   }
 
   public void clickOnOptionsLink() {
-    optionsLink.click();
+    javascriptExecutor.executeScript("arguments[0].click();", optionsLink);
+  }
+
+  public void clickOnLoginPortalLink() {
+    javascriptExecutor.executeScript("arguments[0].click();", loginPortalLink);
   }
 
   public void clickOnPopupAndAlertsLink() {
-    popupAndAlertsLink.click();
+    javascriptExecutor.executeScript("arguments[0].click();", popupAndAlertsLink);
   }
 
   public void clickOnAccordionItemsLink() {
-    accordionItemLink.click();
+    javascriptExecutor.executeScript("arguments[0].click();", accordionItemsLink);
+  }
+  public void clickOnActionsLink() {
+    javascriptExecutor.executeScript("arguments[0].click();", actionsLink);
   }
 }

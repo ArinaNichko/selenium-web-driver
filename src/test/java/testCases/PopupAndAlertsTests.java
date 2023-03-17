@@ -16,6 +16,7 @@ public class PopupAndAlertsTests extends BaseTest {
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
+    popupAndAlertsPage.implicitWait(TIMEOUT);
     popupAndAlertsPage.clickOnAlertButton();
 
     Alert alert = popupAndAlertsPage.switchToAlert();
@@ -38,9 +39,11 @@ public class PopupAndAlertsTests extends BaseTest {
     popupAndAlertsPage.clickOnPopupButton();
 
     popupAndAlertsPage.waitVisibilityOfPopup();
+    String popupTitle = popupAndAlertsPage.getPopupTitle();
+
     popupAndAlertsPage.clickOnClosePopupButton();
 
-    Assert.assertEquals(popupAndAlertsPage.getPopupTitle(),
+    Assert.assertEquals(popupTitle,
             "It’s that Easy!! Well I think it is.....");
   }
 }
