@@ -7,10 +7,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class ActionsPage extends BasePage {
   private final Actions ACTION = new Actions(driver);
+
   @FindBy(xpath = "//*[@id=\"draggable\"]")
   private WebElement dropTarget;
+
   @FindBy(xpath = "//*[@id=\"droppable\"]")
   private WebElement droppableContainer;
+
   @FindBy(xpath = "//*[@id=\"double-click\"]")
   private WebElement doubleClickableItem;
 
@@ -28,6 +31,7 @@ public class ActionsPage extends BasePage {
   public String getDroppableContainerText() {
     return (String) javascriptExecutor.executeScript("return arguments[0].textContent", droppableContainer);
   }
+
   public void performDoubleClick(){
     ACTION.doubleClick(doubleClickableItem).build().perform();
   }
@@ -44,6 +48,7 @@ public class ActionsPage extends BasePage {
   public String getClickableBoxText() {
     return (String) javascriptExecutor.executeScript("return arguments[0].textContent", clickableBox);
   }
+
   public String getClickableBoxColor() {
     return (String) javascriptExecutor.executeScript("return arguments[0].style.background", clickableBox);
   }

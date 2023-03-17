@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPortalPage extends BasePage {
   @FindBy(css = "#text")
   private WebElement usernamePlaceholder;
+
   @FindBy(css = "#password")
   private WebElement passwordPlaceholder;
 

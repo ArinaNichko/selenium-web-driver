@@ -8,10 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class PopupAndAlertsPage extends BasePage {
   @FindBy(xpath = "//*[@id=\"button1\"]")
   private WebElement alertButton;
+
   @FindBy(id = "button2")
   private WebElement popupButton;
+
   @FindBy(xpath = "//*[@id=\"myModal\"]/div/div/div[3]/button")
   private WebElement closePopupButton;
+
   @FindBy(xpath = "//h4")
   private WebElement popupTitle;
 
