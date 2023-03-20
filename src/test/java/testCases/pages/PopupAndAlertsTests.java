@@ -1,15 +1,24 @@
-package testCases;
+package testCases.pages;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.PopupAndAlertsPage;
+import testCases.BaseTest;
+
 import java.util.List;
 
 public class PopupAndAlertsTests extends BaseTest {
+  private static PopupAndAlertsPage popupAndAlertsPage;
+
+  @BeforeMethod
+  public void setPopupAndAlertsPage() {
+    popupAndAlertsPage = pageFactoryManager.getPopupAndAlertsPage();
+  }
 
   @Test
-  public void checkAlert(){
+  public void checkAlert() {
     homePage.openHomePage();
     homePage.clickOnPopupAndAlertsLink();
 

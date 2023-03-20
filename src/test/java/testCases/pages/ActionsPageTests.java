@@ -1,11 +1,20 @@
-package testCases;
+package testCases.pages;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.ActionsPage;
+import testCases.BaseTest;
+
 import java.util.List;
 
-public class ActionsPageTest extends BaseTest {
+public class ActionsPageTests extends BaseTest {
+  private static ActionsPage actionsPage;
+
+  @BeforeMethod
+  public void setActionsPage() {
+    actionsPage = pageFactoryManager.getActionsPage();
+  }
 
   @Test
   public void checkDragAndDrop() {
@@ -32,7 +41,7 @@ public class ActionsPageTest extends BaseTest {
     actionsPage.implicitWait(TIMEOUT);
     actionsPage.performDoubleClick();
 
-    Assert.assertEquals(actionsPage.getDoubleClickableItemColor(),"rgb(147, 203, 90)");
+    Assert.assertEquals(actionsPage.getDoubleClickableItemColor(), "rgb(147, 203, 90)");
   }
 
   @Test
@@ -46,7 +55,7 @@ public class ActionsPageTest extends BaseTest {
     actionsPage.implicitWait(TIMEOUT);
     actionsPage.clickAndHold();
 
-    Assert.assertEquals(actionsPage.getClickableBoxColor(),"rgb(0, 255, 0)");
-    Assert.assertEquals(actionsPage.getClickableBoxText(),"Well done! keep holding that click now.....");
+    Assert.assertEquals(actionsPage.getClickableBoxColor(), "rgb(0, 255, 0)");
+    Assert.assertEquals(actionsPage.getClickableBoxText(), "Well done! keep holding that click now.....");
   }
 }

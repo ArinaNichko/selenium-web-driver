@@ -1,11 +1,20 @@
-package testCases;
+package testCases.pages;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.AccordionItemsPage;
+import testCases.BaseTest;
+
 import java.util.List;
 
 public class AccordionItemsTests extends BaseTest {
+  private static AccordionItemsPage accordionItemsPage;
+
+  @BeforeMethod
+  public void setAccordionItemsPage() {
+    accordionItemsPage = pageFactoryManager.getAccordionItemsPage();
+  }
 
   @Test
   public void checkKeepClickingItem() {
@@ -15,7 +24,6 @@ public class AccordionItemsTests extends BaseTest {
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    accordionItemsPage.implicitWait(TIMEOUT);
     accordionItemsPage.waitVisibilityOfLoadText("LOADING COMPLETE.");
     accordionItemsPage.clickOnKeepClickingItem();
 

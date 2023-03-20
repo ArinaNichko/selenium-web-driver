@@ -27,7 +27,7 @@ public class PageFactoryManager {
     return new AccordionItemsPage(driver);
   }
 
-  public OptionsPage getDropdownPage() {
+  public OptionsPage getOptionsPage() {
     return new OptionsPage(driver);
   }
 

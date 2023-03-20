@@ -1,13 +1,21 @@
-package testCases;
+package testCases.pages;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.LoginPortalPage;
+import testCases.BaseTest;
 
 import java.util.List;
 
 public class LoginPortalTests extends BaseTest {
+  private static LoginPortalPage loginPortalPage;
+
+  @BeforeMethod
+  public void setLoginPortalPage() {
+    loginPortalPage = pageFactoryManager.getLoginPortalPage();
+  }
 
   @Test
   public void checkLogin() {

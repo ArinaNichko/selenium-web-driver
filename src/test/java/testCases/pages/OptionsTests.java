@@ -1,11 +1,20 @@
-package testCases;
+package testCases.pages;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.OptionsPage;
+import testCases.BaseTest;
+
 import java.util.List;
 
 public class OptionsTests extends BaseTest {
+  private static OptionsPage optionsPage;
+
+  @BeforeMethod
+  public void setOptionsPage() {
+    optionsPage = pageFactoryManager.getOptionsPage();
+  }
 
   @Test
   public void checkJavaDropdownMenu() {
