@@ -14,7 +14,7 @@
             <class name="testCases.pages.LoginPortalTests" />
         </classes>
     </test>
-    <test name="Edge">
+    <test name="Edge Tests">
         <parameter name="browser" value="edge" />
         <parameter name="localRun" value="true" />
         <classes>
