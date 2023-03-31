@@ -1,11 +1,20 @@
-package testCases;
+package testCases.pages;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.OptionsPage;
+import testCases.BaseTest;
+
 import java.util.List;
 
 public class OptionsTests extends BaseTest {
+  private static OptionsPage optionsPage;
+
+  @BeforeMethod
+  public void setOptionsPage() {
+    optionsPage = pageFactoryManager.getOptionsPage();
+  }
 
   @Test
   public void checkJavaDropdownMenu() {
@@ -15,6 +24,7 @@ public class OptionsTests extends BaseTest {
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
+    optionsPage.implicitWait(TIMEOUT);
     optionsPage.selectOption("python");
 
     Assert.assertEquals(optionsPage.getSelectedOptionText(), "Python");
@@ -23,11 +33,13 @@ public class OptionsTests extends BaseTest {
   @Test
   public void checkEclipseDropdownMenu() {
     homePage.openHomePage();
+
     homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
+    optionsPage.implicitWait(TIMEOUT);
     optionsPage.clickOnEclipseDropdownMenu();
 
     optionsPage.waitVisibilityOfTestngOption();
@@ -44,6 +56,7 @@ public class OptionsTests extends BaseTest {
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
+    optionsPage.implicitWait(TIMEOUT);
     optionsPage.clickOnGreenRadioButton();
 
     Assert.assertEquals(optionsPage.getGreenRadioButtonValue(), "green");
@@ -57,6 +70,7 @@ public class OptionsTests extends BaseTest {
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
+    optionsPage.implicitWait(TIMEOUT);
     optionsPage.clickOnFirstOptionCheckbox();
     optionsPage.clickOnSecondOptionCheckbox();
     optionsPage.clickOnThirdOptionCheckbox();
