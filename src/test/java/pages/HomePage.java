@@ -1,9 +1,12 @@
 package pages;
 
+import base.BasePage;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Slf4j
 public class HomePage extends BasePage {
   final String URL = "https://www.webdriveruniversity.com/";
 
@@ -14,25 +17,45 @@ public class HomePage extends BasePage {
   private WebElement popupAndAlertsLink;
 
   @FindBy(xpath = "//h1[contains(text(),'ACCORDION')]")
-  private WebElement accordionItemLink;
+  private WebElement accordionItemsLink;
+
+  @FindBy(css = "#login-portal")
+  private WebElement loginPortalLink;
+
+  @FindBy(css = "#actions")
+  private WebElement actionsLink;
 
   public HomePage(WebDriver driver) {
     super(driver);
   }
 
   public void openHomePage() {
+    log.info("Opened home page");
     driver.get(URL);
   }
 
   public void clickOnOptionsLink() {
-    optionsLink.click();
+    log.info("Clicked on Options link");
+    javascriptExecutor.executeScript("arguments[0].click();", optionsLink);
+  }
+
+  public void clickOnLoginPortalLink() {
+    log.info("Clicked on Login portal link");
+    javascriptExecutor.executeScript("arguments[0].click();", loginPortalLink);
   }
 
   public void clickOnPopupAndAlertsLink() {
-    popupAndAlertsLink.click();
+    log.info("Clicked on Popup and alert link");
+    javascriptExecutor.executeScript("arguments[0].click();", popupAndAlertsLink);
   }
 
   public void clickOnAccordionItemsLink() {
-    accordionItemLink.click();
+    log.info("Clicked on Accordion items link");
+    javascriptExecutor.executeScript("arguments[0].click();", accordionItemsLink);
+  }
+
+  public void clickOnActionsLink() {
+    log.info("Clicked on Actions link");
+    javascriptExecutor.executeScript("arguments[0].click();", actionsLink);
   }
 }

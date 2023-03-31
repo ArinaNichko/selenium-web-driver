@@ -1,19 +1,23 @@
-package testCases.pages;
+package testCases.options;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.OptionsPage;
-import testCases.BaseTest;
+import base.BaseTest;
 
 import java.util.List;
 
 public class OptionsTests extends BaseTest {
   private static OptionsPage optionsPage;
+  private static String selectOption;
+  private static String expectedResult;
 
   @BeforeMethod
   public void setOptionsPage() {
     optionsPage = pageFactoryManager.getOptionsPage();
+    selectOption = propertiesHelper.getProperty("selectOption");
+    expectedResult = propertiesHelper.getProperty("expectedResult");
   }
 
   @Test
@@ -25,9 +29,9 @@ public class OptionsTests extends BaseTest {
     homePage.switchToTab(newTab.get(FIRST));
 
     optionsPage.implicitWait(TIMEOUT);
-    optionsPage.selectOption("python");
+    optionsPage.selectOption(selectOption);
 
-    Assert.assertEquals(optionsPage.getSelectedOptionText(), "Python");
+    Assert.assertEquals(optionsPage.getSelectedOptionText(), expectedResult);
   }
 
   @Test

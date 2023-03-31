@@ -1,10 +1,10 @@
-package testCases.pages;
+package testCases.actions;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ActionsPage;
-import testCases.BaseTest;
+import base.BaseTest;
 
 import java.util.List;
 

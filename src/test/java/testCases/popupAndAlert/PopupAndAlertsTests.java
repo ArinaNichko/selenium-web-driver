@@ -1,11 +1,11 @@
-package testCases.pages;
+package testCases.popupAndAlert;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.PopupAndAlertsPage;
-import testCases.BaseTest;
+import base.BaseTest;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package testCases.pages;
+package testCases.accordionItems;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AccordionItemsPage;
-import testCases.BaseTest;
+import base.BaseTest;
 
 import java.util.List;
 
