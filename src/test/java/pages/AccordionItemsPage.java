@@ -19,37 +19,33 @@ public class AccordionItemsPage extends BasePage {
   private WebElement manualTestingItem;
 
   @FindBy(xpath = "//*[@id='timeout']")
-  private WebElement KeepClickingItemPanel;
+  private WebElement keepClickingItemPanel;
 
   @FindBy(css = "#manual-testing-description")
-  private WebElement ManualTestingItemPanel;
+  private WebElement manualTestingItemPanel;
 
   public AccordionItemsPage(WebDriver driver) {
     super(driver);
   }
 
   public void clickOnKeepClickingItem() {
-    log.info("Clicked on Keep clicking item");
-    keepClickingItem.click();
+    elementWrapper(keepClickingItem).click();
   }
 
   public void clickOnManualTestingItem() {
-    log.info("Clicked on Manual testing item");
-    manualTestingItem.click();
+    elementWrapper(manualTestingItem).click();
   }
 
   public String getKeepClickingItemText() {
-    log.debug("Getting Keep clicking item text: {}", KeepClickingItemPanel.getText());
-    return KeepClickingItemPanel.getText();
+    return elementWrapper(keepClickingItemPanel).getText();
   }
 
   public String getManualTestingItemText() {
-    log.debug("Getting Manual testing item text: {}", ManualTestingItemPanel.getText());
-    return ManualTestingItemPanel.getText();
+    return elementWrapper(manualTestingItemPanel).getText();
   }
 
   public void waitVisibilityOfLoadText(String text) {
-    log.info("Setting explicit wait to be present in element: {}", loadItem);
+    log.info("Setting explicit wait to be present in Load element");
     WAIT.until(
             ExpectedConditions.textToBePresentInElement(loadItem, text));
   }

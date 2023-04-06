@@ -1,14 +1,10 @@
 package base;
 
-import exceptions.TestExecutionException;
+import static utils.PropertiesHelper.getInstance;
+
 import manager.PageFactoryManager;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -17,14 +13,9 @@ import org.testng.annotations.Parameters;
 import pages.HomePage;
 import utils.PropertiesHelper;
 import reporting.TestListener;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import static io.github.bonigarcia.wdm.WebDriverManager.chromedriver;
-import static io.github.bonigarcia.wdm.WebDriverManager.edgedriver;
-import static io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver;
-import static utils.PropertiesHelper.getInstance;
+import webDriverFactory.LocalWebDriverCreator;
+import webDriverFactory.RemoteWebDriverCreator;
+import webDriverFactory.WebDriverCreator;
 
 @Listeners({TestListener.class})
 public class BaseTest {
@@ -50,43 +41,13 @@ public class BaseTest {
   public void setUpDriver(String browser, boolean localRun) {
     String envBrowser = System.getenv("BROWSER");
     browser = envBrowser != null ? envBrowser : browser;
+    WebDriverCreator creator;
     if (localRun) {
-      setUpLocalDriver(browser);
+      creator = new LocalWebDriverCreator(browser);
     } else {
-      setUpRemoteDriver(browser);
+      creator = new RemoteWebDriverCreator(browser, "http://172.20.10.3:4444/");
     }
-  }
-
-  public void setUpLocalDriver(String browser) {
-    if (browser.equalsIgnoreCase("chrome")) {
-      chromedriver().setup();
-      driver = new ChromeDriver();
-    } else if (browser.equalsIgnoreCase("firefox")) {
-      firefoxdriver().setup();
-      driver = new FirefoxDriver();
-    } else if (browser.equalsIgnoreCase("edge")) {
-      edgedriver().setup();
-      driver = new EdgeDriver();
-    }
-  }
-
-  public void setUpRemoteDriver(String browser) {
-    try {
-      driver = new RemoteWebDriver(new URL("http://172.20.10.3:4444/"), getDesiredCapabilities(browser));
-    } catch (MalformedURLException e) {
-      throw new TestExecutionException(e.getMessage());
-    }
-  }
-
-  public DesiredCapabilities getDesiredCapabilities(String browser) {
-    if (browser.equalsIgnoreCase("chrome")) {
-      return DesiredCapabilities.chrome();
-    } else if (browser.equalsIgnoreCase("firefox")) {
-      return DesiredCapabilities.firefox();
-    } else if (browser.equalsIgnoreCase("edge")) {
-      return DesiredCapabilities.edge();
-    }
-    return new DesiredCapabilities();
+    driver = creator.createWebDriver();
   }
 
   private static void configureLog4j() {

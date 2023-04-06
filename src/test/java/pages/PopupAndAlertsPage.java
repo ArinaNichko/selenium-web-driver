@@ -26,27 +26,23 @@ public class PopupAndAlertsPage extends BasePage {
   }
 
   public void clickOnAlertButton() {
-    log.info("Clicked on Alert button");
-    alertButton.click();
+    javascriptExecutor.executeScript("arguments[0].click();", alertButton);
   }
 
   public void clickOnClosePopupButton() {
-    log.info("Clicked on Close popup button");
-    closePopupButton.click();
+    elementWrapper(closePopupButton).click();
   }
 
   public String getPopupTitle() {
-    log.debug("Getting popup title: {}", popupTitle.getText());
-    return popupTitle.getText();
+    return elementWrapper(popupTitle).getText();
   }
 
   public void clickOnPopupButton() {
-    log.info("Clicked on Popup button");
-    popupButton.click();
+    elementWrapper(popupButton).click();
   }
 
   public void waitVisibilityOfPopup() {
-    log.info("Setting explicit wait of visibility of element: {}", closePopupButton);
+    log.info("Setting explicit wait of visibility of element: {}", closePopupButton.getAttribute("value"));
     WAIT.until(
             ExpectedConditions.visibilityOf(closePopupButton));
   }
