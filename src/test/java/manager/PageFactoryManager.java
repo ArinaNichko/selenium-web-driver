@@ -11,7 +11,6 @@ public class PageFactoryManager {
 
     public PageFactoryManager(WebDriver driver) {
         this.driver = driver;
-
     }
 
     public HomePage getHomePage() {
