@@ -1,45 +1,61 @@
 package pages;
 
+import base.BasePage;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage{
-
-
-  String url = "https://www.webdriveruniversity.com/";
+@Slf4j
+public class HomePage extends BasePage {
+  final String URL = "https://www.webdriveruniversity.com/";
 
   @FindBy(id = "dropdown-checkboxes-radiobuttons")
-  private WebElement dropdownLinks;
+  private WebElement optionsLink;
 
   @FindBy(css = "#popup-alerts")
   private WebElement popupAndAlertsLink;
 
-  @FindBy(xpath = "//*[@id=\"button1\"]")
-  private WebElement popupButton;
+  @FindBy(xpath = "//h1[contains(text(),'ACCORDION')]")
+  private WebElement accordionItemsLink;
 
+  @FindBy(css = "#login-portal")
+  private WebElement loginPortalLink;
 
+  @FindBy(css = "#actions")
+  private WebElement actionsLink;
 
   public HomePage(WebDriver driver) {
     super(driver);
   }
 
-
   public void openHomePage() {
-    driver.get(url);
+    log.info("Opened home page");
+    driver.get(URL);
   }
 
-  public void clickOnDropdownLinks() {
-    dropdownLinks.click();
-  }
-  public void clickOnpopupAndAlertsLink() {
-    popupAndAlertsLink.click();
+  public void clickOnOptionsLink() {
+    log.info("Clicked on Options link");
+    javascriptExecutor.executeScript("arguments[0].click();", optionsLink);
   }
 
-  public void clickOnPopup() {
-    popupButton.click();
+  public void clickOnLoginPortalLink() {
+    log.info("Clicked on Login portal link");
+    javascriptExecutor.executeScript("arguments[0].click();", loginPortalLink);
   }
 
+  public void clickOnPopupAndAlertsLink() {
+    log.info("Clicked on Popup and alert link");
+    javascriptExecutor.executeScript("arguments[0].click();", popupAndAlertsLink);
+  }
 
+  public void clickOnAccordionItemsLink() {
+    log.info("Clicked on Accordion items link");
+    javascriptExecutor.executeScript("arguments[0].click();", accordionItemsLink);
+  }
 
+  public void clickOnActionsLink() {
+    log.info("Clicked on Actions link");
+    javascriptExecutor.executeScript("arguments[0].click();", actionsLink);
+  }
 }
