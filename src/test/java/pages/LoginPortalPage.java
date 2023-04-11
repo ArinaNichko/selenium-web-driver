@@ -23,7 +23,7 @@ public class LoginPortalPage extends BasePage {
   }
 
   public void loginIn(User user) {
-    log.debug("Logging in with username: {} and password: {}", user.getUsername(), user.getPassword());
+    log.debug("Logging in with username: {}", user.getUsername());
     usernamePlaceholder.sendKeys(user.getUsername());
     passwordPlaceholder.sendKeys(user.getPassword());
     javascriptExecutor.executeScript("arguments[0].click();", loginButton);
