@@ -1,13 +1,9 @@
 package pages;
 
-import base.BasePage;
-import lombok.extern.slf4j.Slf4j;
-import model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-@Slf4j
 public class LoginPortalPage extends BasePage {
   @FindBy(css = "#text")
   private WebElement usernamePlaceholder;
@@ -22,10 +18,15 @@ public class LoginPortalPage extends BasePage {
     super(driver);
   }
 
-  public void loginIn(User user) {
-    log.debug("Logging in with username: {}", user.getUsername());
-    usernamePlaceholder.sendKeys(user.getUsername());
-    passwordPlaceholder.sendKeys(user.getPassword());
+  public void enterUsername(String username) {
+    usernamePlaceholder.sendKeys(username);
+  }
+
+  public void enterPassword(String password) {
+    passwordPlaceholder.sendKeys(password);
+  }
+
+  public void clickOnLoginButton() {
     javascriptExecutor.executeScript("arguments[0].click();", loginButton);
   }
 }

@@ -1,21 +1,31 @@
-package testCases;
+package testCases.pages;
 
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import utils.BaseTest;
+import pages.PopupAndAlertsPage;
+import testCases.BaseTest;
+
 import java.util.List;
 
 public class PopupAndAlertsTests extends BaseTest {
+  private static PopupAndAlertsPage popupAndAlertsPage;
+
+  @BeforeMethod
+  public void setPopupAndAlertsPage() {
+    popupAndAlertsPage = pageFactoryManager.getPopupAndAlertsPage();
+  }
 
   @Test
-  public void checkAlert(){
+  public void checkAlert() {
     homePage.openHomePage();
     homePage.clickOnPopupAndAlertsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
+    popupAndAlertsPage.implicitWait(TIMEOUT);
     popupAndAlertsPage.clickOnAlertButton();
 
     Alert alert = popupAndAlertsPage.switchToAlert();
@@ -38,9 +48,11 @@ public class PopupAndAlertsTests extends BaseTest {
     popupAndAlertsPage.clickOnPopupButton();
 
     popupAndAlertsPage.waitVisibilityOfPopup();
+    String popupTitle = popupAndAlertsPage.getPopupTitle();
+
     popupAndAlertsPage.clickOnClosePopupButton();
 
-    Assert.assertEquals(popupAndAlertsPage.getPopupTitle(),
+    Assert.assertEquals(popupTitle,
             "It’s that Easy!! Well I think it is.....");
   }
 }
