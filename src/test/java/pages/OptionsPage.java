@@ -51,48 +51,55 @@ public class OptionsPage extends BasePage {
   }
 
   public void clickOnEclipseDropdownMenu() {
-    elementWrapper(eclipseDropdownMenu).click();
+    log.info("Clicked on {} dropdown menu", eclipseDropdownMenu.getAttribute("value"));
+    eclipseDropdownMenu.click();
   }
 
-
   public void clickOnTestngOption() {
-    elementWrapper(testngOption).click();
+    log.info("Clicked on {} option", testngOption.getAttribute("value"));
+    testngOption.click();
   }
 
   public String getTestngOptionText() {
-    return elementWrapper(testngOption).getText();
+    log.debug("Getting option text: {}", testngOption.getText());
+    return testngOption.getText();
   }
 
   public void clickOnGreenRadioButton() {
-    elementWrapper(greenRadioButton).click();
+    log.info("Clicked on {} radio button", greenRadioButton.getAttribute("value"));
+    greenRadioButton.click();
   }
 
   public String getGreenRadioButtonValue() {
-    return elementWrapper(greenRadioButton).getAttribute("value");
+    log.debug("Getting radio button value: {}", greenRadioButton.getAttribute("value"));
+    return greenRadioButton.getAttribute("value");
   }
 
   public void clickOnFirstOptionCheckbox() {
-    elementWrapper(firstOptionCheckbox).click();
+    log.info("Clicked on First option checkbox");
+    firstOptionCheckbox.click();
   }
 
   public void clickOnSecondOptionCheckbox() {
-    elementWrapper(secondOptionCheckbox).click();
+    log.info("Clicked on Second option checkbox");
+    secondOptionCheckbox.click();
   }
 
   public void clickOnThirdOptionCheckbox() {
-    elementWrapper(thirdOptionCheckbox).click();
+    log.info("Clicked on Third option checkbox");
+    thirdOptionCheckbox.click();
   }
 
   public boolean isSelectedFirstOptionCheckbox() {
-    return elementWrapper(firstOptionCheckbox).isSelected();
+    return firstOptionCheckbox.isSelected();
   }
 
   public boolean isSelectedSecondOptionCheckbox() {
-    return elementWrapper(secondOptionCheckbox).isSelected();
+    return secondOptionCheckbox.isSelected();
   }
 
   public boolean isNotSelectedThirdOptionCheckbox() {
-    return !elementWrapper(thirdOptionCheckbox).isSelected();
+    return !(thirdOptionCheckbox.isSelected());
   }
 
   public void waitVisibilityOfTestngOption() {

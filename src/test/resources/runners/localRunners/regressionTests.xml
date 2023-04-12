@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression tests" parallel="classes">
+    <listeners>
+        <listener class-name="reporting.TestListener"/>
+    </listeners>
+    <suite-files>
+        <suite-file path="popupAndAlertsSuite.xml"/>
+        <suite-file path="actionsSuite.xml"/>
+        <suite-file path="loginPortalSuite.xml"/>
+    </suite-files>
+</suite>

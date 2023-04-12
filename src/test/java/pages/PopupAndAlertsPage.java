@@ -30,15 +30,15 @@ public class PopupAndAlertsPage extends BasePage {
   }
 
   public void clickOnClosePopupButton() {
-    elementWrapper(closePopupButton).click();
+    closePopupButton.click();
   }
 
   public String getPopupTitle() {
-    return elementWrapper(popupTitle).getText();
+    return popupTitle.getText();
   }
 
   public void clickOnPopupButton() {
-    elementWrapper(popupButton).click();
+    popupButton.click();
   }
 
   public void waitVisibilityOfPopup() {

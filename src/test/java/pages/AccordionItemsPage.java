@@ -29,19 +29,23 @@ public class AccordionItemsPage extends BasePage {
   }
 
   public void clickOnKeepClickingItem() {
-    elementWrapper(keepClickingItem).click();
+    log.info("Clicked on Keep clicking item");
+    keepClickingItem.click();
   }
 
   public void clickOnManualTestingItem() {
-    elementWrapper(manualTestingItem).click();
+    log.info("Clicked on Manual testing item");
+    manualTestingItem.click();
   }
 
   public String getKeepClickingItemText() {
-    return elementWrapper(keepClickingItemPanel).getText();
+    log.debug("Getting item text: {}", keepClickingItemPanel.getText());
+    return keepClickingItemPanel.getText();
   }
 
   public String getManualTestingItemText() {
-    return elementWrapper(manualTestingItemPanel).getText();
+    log.debug("Getting item text: {}", manualTestingItemPanel.getText());
+    return manualTestingItemPanel.getText();
   }
 
   public void waitVisibilityOfLoadText(String text) {

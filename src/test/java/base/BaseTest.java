@@ -26,7 +26,6 @@ public class BaseTest {
   final protected int TIMEOUT = 15;
   protected static PropertiesHelper propertiesHelper;
 
-
   @Parameters({"browser", "localRun"})
   @BeforeMethod
   public void setUp(String browser, @Optional("true") boolean localRun) {
