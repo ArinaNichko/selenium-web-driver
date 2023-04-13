@@ -2,11 +2,11 @@ package userDecorator;
 
 import org.apache.commons.lang.RandomStringUtils;
 
-public class UserWithAutoPasswordDecorator extends DefaultUser {
+public class UserWithAutoPasswordDecorator extends UserDecorator {
   private final static int LENGTH = 8;
 
-  public UserWithAutoPasswordDecorator(String username) {
-    super(username, null);
+  public UserWithAutoPasswordDecorator(User user) {
+    super(user);
     setPassword(generatePassword(LENGTH));
   }
 

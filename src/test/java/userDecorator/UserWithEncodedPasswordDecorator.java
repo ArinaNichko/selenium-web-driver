@@ -2,11 +2,11 @@ package userDecorator;
 
 import java.util.Base64;
 
-public class UserWithEncodedPasswordDecorator extends DefaultUser {
+public class UserWithEncodedPasswordDecorator extends UserDecorator {
 
-  public UserWithEncodedPasswordDecorator(String username, String password) {
-    super(username, null);
-    setPassword(password);
+  public UserWithEncodedPasswordDecorator(User user) {
+    super(user);
+    setPassword(user.getPassword());
   }
 
   public static String encodeBase64(String input) {
