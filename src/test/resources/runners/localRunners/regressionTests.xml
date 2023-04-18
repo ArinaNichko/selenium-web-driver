@@ -4,6 +4,7 @@
         <listener class-name="reporting.TestListener"/>
     </listeners>
     <suite-files>
+        <suite-file path="popupAndAlertsSuite.xml"/>
         <suite-file path="actionsSuite.xml"/>
         <suite-file path="loginPortalSuite.xml"/>
     </suite-files>

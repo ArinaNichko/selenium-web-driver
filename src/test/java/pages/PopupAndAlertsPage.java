@@ -1,11 +1,13 @@
 package pages;
 
 import base.BasePage;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Slf4j
 public class PopupAndAlertsPage extends BasePage {
   @FindBy(xpath = "//*[@id=\"button1\"]")
   private WebElement alertButton;
@@ -24,7 +26,7 @@ public class PopupAndAlertsPage extends BasePage {
   }
 
   public void clickOnAlertButton() {
-    alertButton.click();
+    javascriptExecutor.executeScript("arguments[0].click();", alertButton);
   }
 
   public void clickOnClosePopupButton() {
@@ -40,6 +42,7 @@ public class PopupAndAlertsPage extends BasePage {
   }
 
   public void waitVisibilityOfPopup() {
+    log.info("Setting explicit wait of visibility of element: {}", closePopupButton.getAttribute("value"));
     WAIT.until(
             ExpectedConditions.visibilityOf(closePopupButton));
   }

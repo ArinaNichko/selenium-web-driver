@@ -51,27 +51,27 @@ public class OptionsPage extends BasePage {
   }
 
   public void clickOnEclipseDropdownMenu() {
-    log.info("Clicked on Eclipse dropdown menu");
+    log.info("Clicked on {} dropdown menu", eclipseDropdownMenu.getAttribute("value"));
     eclipseDropdownMenu.click();
   }
 
   public void clickOnTestngOption() {
-    log.info("Clicked on Testng option");
+    log.info("Clicked on {} option", testngOption.getAttribute("value"));
     testngOption.click();
   }
 
   public String getTestngOptionText() {
-    log.debug("Getting Testng option text: {}", testngOption.getText());
+    log.debug("Getting option text: {}", testngOption.getText());
     return testngOption.getText();
   }
 
   public void clickOnGreenRadioButton() {
-    log.info("Clicked on Green radio button");
+    log.info("Clicked on {} radio button", greenRadioButton.getAttribute("value"));
     greenRadioButton.click();
   }
 
   public String getGreenRadioButtonValue() {
-    log.debug("Getting Green radio button value: {}", greenRadioButton.getAttribute("value"));
+    log.debug("Getting radio button value: {}", greenRadioButton.getAttribute("value"));
     return greenRadioButton.getAttribute("value");
   }
 
@@ -103,7 +103,7 @@ public class OptionsPage extends BasePage {
   }
 
   public void waitVisibilityOfTestngOption() {
-    log.info("Setting explicit wait of visibility of element: {}", testngOption);
+    log.info("Setting explicit wait of visibility of element: {}", testngOption.getAttribute("value"));
     WAIT.until(
             ExpectedConditions.visibilityOf(testngOption));
   }

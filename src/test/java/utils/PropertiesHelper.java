@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class PropertiesHelper {
   private static final Properties PROPERTIES = new Properties();
-  private static PropertiesHelper propertiesHelper;
+  public static PropertiesHelper propertiesHelper;
 
   private PropertiesHelper() {
     this.initializeProperties();
