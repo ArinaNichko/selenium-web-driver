@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 @Slf4j
 public class HomePage extends BasePage {
-  final String URL = "https://www.webdriveruniversity.com/";
-
   @FindBy(id = "dropdown-checkboxes-radiobuttons")
   private WebElement optionsLink;
 
@@ -29,33 +27,33 @@ public class HomePage extends BasePage {
     super(driver);
   }
 
-  public void openHomePage() {
+  public void openHomePage(String baseUrl) {
     log.info("Opened home page");
-    driver.get(URL);
+    driver.get(baseUrl);
   }
 
   public void clickOnOptionsLink() {
     log.info("Clicked on Options link");
-    javascriptExecutor.executeScript("arguments[0].click();", optionsLink);
+    javascriptExecutor.executeScript(JS_CLICK_SCRIPT, optionsLink);
   }
 
   public void clickOnLoginPortalLink() {
     log.info("Clicked on Login portal link");
-    javascriptExecutor.executeScript("arguments[0].click();", loginPortalLink);
+    javascriptExecutor.executeScript(JS_CLICK_SCRIPT, loginPortalLink);
   }
 
   public void clickOnPopupAndAlertsLink() {
     log.info("Clicked on Popup and alert link");
-    javascriptExecutor.executeScript("arguments[0].click();", popupAndAlertsLink);
+    javascriptExecutor.executeScript(JS_CLICK_SCRIPT, popupAndAlertsLink);
   }
 
   public void clickOnAccordionItemsLink() {
     log.info("Clicked on Accordion items link");
-    javascriptExecutor.executeScript("arguments[0].click();", accordionItemsLink);
+    javascriptExecutor.executeScript(JS_CLICK_SCRIPT, accordionItemsLink);
   }
 
   public void clickOnActionsLink() {
     log.info("Clicked on Actions link");
-    javascriptExecutor.executeScript("arguments[0].click();", actionsLink);
+    javascriptExecutor.executeScript(JS_CLICK_SCRIPT, actionsLink);
   }
 }

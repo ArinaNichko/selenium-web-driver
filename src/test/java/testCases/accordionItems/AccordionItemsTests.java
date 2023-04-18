@@ -13,12 +13,12 @@ public class AccordionItemsTests extends BaseTest {
 
   @BeforeMethod
   public void setAccordionItemsPage() {
-    accordionItemsPage = pageFactoryManager.getAccordionItemsPage();
+    accordionItemsPage = pageFactoryManager.getPage(AccordionItemsPage.class);
   }
 
   @Test
   public void checkKeepClickingItem() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnAccordionItemsLink();
 
     List<String> tabsList = homePage.tabsList();
@@ -33,13 +33,13 @@ public class AccordionItemsTests extends BaseTest {
 
   @Test
   public void checkManualTestingItem() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnAccordionItemsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    accordionItemsPage.implicitWait(TIMEOUT);
+    accordionItemsPage.implicitWait(timeout);
     accordionItemsPage.clickOnManualTestingItem();
 
     Assert.assertTrue(accordionItemsPage.getManualTestingItemText().contains("Manual testing has for some time"));

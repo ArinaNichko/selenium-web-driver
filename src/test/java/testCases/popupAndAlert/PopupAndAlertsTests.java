@@ -14,18 +14,18 @@ public class PopupAndAlertsTests extends BaseTest {
 
   @BeforeMethod
   public void setPopupAndAlertsPage() {
-    popupAndAlertsPage = pageFactoryManager.getPopupAndAlertsPage();
+    popupAndAlertsPage = pageFactoryManager.getPage(PopupAndAlertsPage.class);
   }
 
   @Test
   public void checkAlert() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnPopupAndAlertsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    popupAndAlertsPage.implicitWait(TIMEOUT);
+    popupAndAlertsPage.implicitWait(timeout);
     popupAndAlertsPage.clickOnAlertButton();
 
     Alert alert = popupAndAlertsPage.switchToAlert();
@@ -38,13 +38,13 @@ public class PopupAndAlertsTests extends BaseTest {
 
   @Test
   public void checkPopup() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnPopupAndAlertsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    popupAndAlertsPage.implicitWait(TIMEOUT);
+    popupAndAlertsPage.implicitWait(timeout);
     popupAndAlertsPage.clickOnPopupButton();
 
     popupAndAlertsPage.waitVisibilityOfPopup();

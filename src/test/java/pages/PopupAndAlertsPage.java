@@ -26,7 +26,7 @@ public class PopupAndAlertsPage extends BasePage {
   }
 
   public void clickOnAlertButton() {
-    javascriptExecutor.executeScript("arguments[0].click();", alertButton);
+    javascriptExecutor.executeScript(JS_CLICK_SCRIPT, alertButton);
   }
 
   public void clickOnClosePopupButton() {

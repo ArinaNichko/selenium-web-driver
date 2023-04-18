@@ -1,5 +1,6 @@
 package base;
 
+import static java.util.Optional.ofNullable;
 import static utils.PropertiesHelper.getInstance;
 
 import manager.PageFactoryManager;
@@ -19,12 +20,18 @@ import webDriverFactory.WebDriverCreator;
 
 @Listeners({TestListener.class})
 public class BaseTest {
+  public static WebDriver driver;
+  public static PropertiesHelper propertiesHelper;
   protected static HomePage homePage;
   protected static PageFactoryManager pageFactoryManager;
-  public static WebDriver driver;
+  protected static int timeout;
+  protected static String baseUrl;
+  private static String hubUrl;
   final protected int FIRST = 1;
-  final protected int TIMEOUT = 15;
-  protected static PropertiesHelper propertiesHelper;
+
+  private static void configureLog4j() {
+    PropertyConfigurator.configure(propertiesHelper.getProperty("log4jPropertiesPath"));
+  }
 
   @Parameters({"browser", "localRun"})
   @BeforeMethod
@@ -32,25 +39,29 @@ public class BaseTest {
     setUpDriver(browser, localRun);
     driver.manage().window().maximize();
     pageFactoryManager = new PageFactoryManager(driver);
-    homePage = pageFactoryManager.getHomePage();
+    homePage = pageFactoryManager.getPage(HomePage.class);
     propertiesHelper = getInstance();
     configureLog4j();
+    configureConstant();
   }
 
   public void setUpDriver(String browser, boolean localRun) {
     String envBrowser = System.getenv("BROWSER");
-    browser = envBrowser != null ? envBrowser : browser;
+    browser = ofNullable(envBrowser).orElse(browser);
     WebDriverCreator creator;
     if (localRun) {
       creator = new LocalWebDriverCreator(browser);
     } else {
-      creator = new RemoteWebDriverCreator(browser, "http://172.20.10.3:4444/");
+      creator = new RemoteWebDriverCreator(browser, hubUrl);
     }
     driver = creator.createWebDriver();
   }
 
-  private static void configureLog4j() {
-    PropertyConfigurator.configure(propertiesHelper.getProperty("log4jPropertiesPath"));
+  public void configureConstant() {
+    hubUrl = propertiesHelper.getProperty("hubUrl");
+    baseUrl = propertiesHelper.getProperty("baseUrl");
+
+    timeout = Integer.parseInt(propertiesHelper.getProperty("timeout"));
   }
 
   @AfterMethod

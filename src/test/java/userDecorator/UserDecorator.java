@@ -1,24 +1,24 @@
 package userDecorator;
 
 public class UserDecorator implements User {
-  private final User wrapper;
+  private final User user;
 
   UserDecorator(User user) {
-    this.wrapper = user;
+    this.user = user;
   }
 
   @Override
   public String getUsername() {
-    return wrapper.getUsername();
+    return user.getUsername();
   }
 
   @Override
   public String getPassword() {
-    return wrapper.getPassword();
+    return user.getPassword();
   }
 
   @Override
   public void setPassword(String password) {
-    wrapper.setPassword(password);
+    user.setPassword(password);
   }
 }

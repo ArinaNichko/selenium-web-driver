@@ -8,6 +8,9 @@ public class DefaultUser implements User {
     this.username = username;
     this.password = password;
   }
+  public DefaultUser(String username) {
+    this.username = username;
+  }
 
   @Override
   public String getUsername() {
