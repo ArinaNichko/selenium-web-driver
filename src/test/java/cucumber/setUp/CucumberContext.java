@@ -1,48 +1,44 @@
-package base;
-
-import static java.util.Optional.ofNullable;
-import static utils.PropertiesHelper.getInstance;
+package cucumber.setUp;
 
 import manager.PageFactoryManager;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import pages.HomePage;
-import utils.PropertiesHelper;
 import reporting.TestListener;
+import utils.PropertiesHelper;
 import webDriverFactory.LocalWebDriverCreator;
 import webDriverFactory.RemoteWebDriverCreator;
 import webDriverFactory.WebDriverCreator;
 
+import static java.util.Optional.ofNullable;
+import static utils.PropertiesHelper.getInstance;
+
 @Listeners({TestListener.class})
-public class BaseTest {
-  public static WebDriver driver;
+public class CucumberContext {
   public static PropertiesHelper propertiesHelper;
-  protected static HomePage homePage;
-  protected static PageFactoryManager pageFactoryManager;
-  protected static int timeout;
-  protected static String baseUrl;
-  private static String hubUrl;
-  protected final int FIRST = 1;
+  public final int FIRST = 1;
+  public PageFactoryManager pageFactoryManager;
+  public WebDriver driver;
+  public HomePage homePage;
+  public int timeout;
+  public String baseUrl;
+  private String hubUrl;
+  private String browser;
+  private boolean localRun;
 
   private static void configureLog4j() {
     PropertyConfigurator.configure(propertiesHelper.getProperty("log4jPropertiesPath"));
   }
 
-  @Parameters({"browser", "localRun"})
-  @BeforeMethod
-  public void setUp(String browser, @Optional("true") boolean localRun) {
+  public void setUp() {
+    propertiesHelper = getInstance();
+    configureConstant();
     setUpDriver(browser, localRun);
     driver.manage().window().maximize();
     pageFactoryManager = new PageFactoryManager(driver);
     homePage = pageFactoryManager.getPage(HomePage.class);
-    propertiesHelper = getInstance();
     configureLog4j();
-    configureConstant();
   }
 
   public void setUpDriver(String browser, boolean localRun) {
@@ -62,10 +58,7 @@ public class BaseTest {
     baseUrl = propertiesHelper.getProperty("baseUrl");
 
     timeout = Integer.parseInt(propertiesHelper.getProperty("timeout"));
-  }
-
-  @AfterMethod
-  public void tearDown() {
-    driver.quit();
+    browser = propertiesHelper.getProperty("browser");
+    localRun = Boolean.parseBoolean(propertiesHelper.getProperty("localRun"));
   }
 }
