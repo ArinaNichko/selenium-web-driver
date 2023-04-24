@@ -13,18 +13,18 @@ public class ActionsPageTests extends BaseTest {
 
   @BeforeMethod
   public void setActionsPage() {
-    actionsPage = pageFactoryManager.getActionsPage();
+    actionsPage = pageFactoryManager.getPage(ActionsPage.class);
   }
 
   @Test
   public void checkDragAndDrop() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnActionsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    actionsPage.implicitWait(TIMEOUT);
+    actionsPage.implicitWait(timeout);
     actionsPage.moveElementToContainer();
 
     Assert.assertTrue(actionsPage.getDroppableContainerText().contains("Dropped!"));
@@ -32,13 +32,13 @@ public class ActionsPageTests extends BaseTest {
 
   @Test
   public void checkDoubleClick() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnActionsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    actionsPage.implicitWait(TIMEOUT);
+    actionsPage.implicitWait(timeout);
     actionsPage.performDoubleClick();
 
     Assert.assertEquals(actionsPage.getDoubleClickableItemColor(), "rgb(147, 203, 90)");
@@ -46,13 +46,13 @@ public class ActionsPageTests extends BaseTest {
 
   @Test
   public void checkClickAndHold() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnActionsLink();
 
     List<String> tabsList = homePage.tabsList();
     homePage.switchToTab(tabsList.get(FIRST));
 
-    actionsPage.implicitWait(TIMEOUT);
+    actionsPage.implicitWait(timeout);
     actionsPage.clickAndHold();
 
     Assert.assertEquals(actionsPage.getClickableBoxColor(), "rgb(0, 255, 0)");

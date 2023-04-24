@@ -15,20 +15,20 @@ public class OptionsTests extends BaseTest {
 
   @BeforeMethod
   public void setOptionsPage() {
-    optionsPage = pageFactoryManager.getOptionsPage();
+    optionsPage = pageFactoryManager.getPage(OptionsPage.class);
     selectOption = propertiesHelper.getProperty("selectOption");
     expectedResult = propertiesHelper.getProperty("expectedResult");
   }
 
   @Test
   public void checkJavaDropdownMenu() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    optionsPage.implicitWait(TIMEOUT);
+    optionsPage.implicitWait(timeout);
     optionsPage.selectOption(selectOption);
 
     Assert.assertEquals(optionsPage.getSelectedOptionText(), expectedResult);
@@ -36,14 +36,14 @@ public class OptionsTests extends BaseTest {
 
   @Test
   public void checkEclipseDropdownMenu() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
 
     homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    optionsPage.implicitWait(TIMEOUT);
+    optionsPage.implicitWait(timeout);
     optionsPage.clickOnEclipseDropdownMenu();
 
     optionsPage.waitVisibilityOfTestngOption();
@@ -54,13 +54,13 @@ public class OptionsTests extends BaseTest {
 
   @Test
   public void checkGreenRadioButton() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    optionsPage.implicitWait(TIMEOUT);
+    optionsPage.implicitWait(timeout);
     optionsPage.clickOnGreenRadioButton();
 
     Assert.assertEquals(optionsPage.getGreenRadioButtonValue(), "green");
@@ -68,13 +68,13 @@ public class OptionsTests extends BaseTest {
 
   @Test
   public void checkCheckboxes() {
-    homePage.openHomePage();
+    homePage.openHomePage(baseUrl);
     homePage.clickOnOptionsLink();
 
     List<String> newTab = homePage.tabsList();
     homePage.switchToTab(newTab.get(FIRST));
 
-    optionsPage.implicitWait(TIMEOUT);
+    optionsPage.implicitWait(timeout);
     optionsPage.clickOnFirstOptionCheckbox();
     optionsPage.clickOnSecondOptionCheckbox();
     optionsPage.clickOnThirdOptionCheckbox();
