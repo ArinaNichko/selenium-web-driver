@@ -16,7 +16,7 @@ import pages.OptionsPage;
 
 import java.util.List;
 
-public class StepDefinitions {
+public class DefinitionSteps {
   private final CucumberContext context;
   private ActionsPage actionsPage;
   private OptionsPage optionsPage;
@@ -24,7 +24,7 @@ public class StepDefinitions {
   private LoginPortalPage loginPortalPage;
   private String getAlertMessage;
 
-  public StepDefinitions(CucumberContext cucumberContext) {
+  public DefinitionSteps(CucumberContext cucumberContext) {
     this.context = cucumberContext;
   }
 
@@ -32,9 +32,9 @@ public class StepDefinitions {
   public void setUp() {
     context.setUp();
     homePage = context.homePage;
-    loginPortalPage = context.pageFactoryManager.getPage(LoginPortalPage.class);
-    actionsPage = context.pageFactoryManager.getPage(ActionsPage.class);
-    optionsPage = context.pageFactoryManager.getPage(OptionsPage.class);
+    loginPortalPage = context.loginPortalPage;
+    actionsPage = context.actionsPage;
+    optionsPage = context.optionsPage;
   }
 
   @After

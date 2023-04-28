@@ -4,23 +4,29 @@ import manager.PageFactoryManager;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Listeners;
+import pages.ActionsPage;
 import pages.HomePage;
+import pages.LoginPortalPage;
+import pages.OptionsPage;
 import reporting.TestListener;
 import utils.PropertiesHelper;
 import webDriverFactory.LocalWebDriverCreator;
 import webDriverFactory.RemoteWebDriverCreator;
 import webDriverFactory.WebDriverCreator;
 
+
 import static java.util.Optional.ofNullable;
 import static utils.PropertiesHelper.getInstance;
 
 @Listeners({TestListener.class})
 public class CucumberContext {
-  public static PropertiesHelper propertiesHelper;
+  protected static PropertiesHelper propertiesHelper = getInstance();
   public final int FIRST = 1;
-  public PageFactoryManager pageFactoryManager;
   public WebDriver driver;
   public HomePage homePage;
+  public LoginPortalPage loginPortalPage;
+  public ActionsPage actionsPage;
+  public OptionsPage optionsPage;
   public int timeout;
   public String baseUrl;
   private String hubUrl;
@@ -32,13 +38,22 @@ public class CucumberContext {
   }
 
   public void setUp() {
-    propertiesHelper = getInstance();
     configureConstant();
+    configureBrowser();
+    configurePages();
+    configureLog4j();
+  }
+
+  public void configureBrowser() {
     setUpDriver(browser, localRun);
     driver.manage().window().maximize();
-    pageFactoryManager = new PageFactoryManager(driver);
-    homePage = pageFactoryManager.getPage(HomePage.class);
-    configureLog4j();
+  }
+
+  public void configurePages() {
+    homePage = new PageFactoryManager(driver).getPage(HomePage.class);
+    loginPortalPage = new PageFactoryManager(driver).getPage(LoginPortalPage.class);
+    actionsPage = new PageFactoryManager(driver).getPage(ActionsPage.class);
+    optionsPage = new PageFactoryManager(driver).getPage(OptionsPage.class);
   }
 
   public void setUpDriver(String browser, boolean localRun) {
