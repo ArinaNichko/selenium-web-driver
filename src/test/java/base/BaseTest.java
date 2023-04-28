@@ -27,7 +27,7 @@ public class BaseTest {
   protected static int timeout;
   protected static String baseUrl;
   private static String hubUrl;
-  final protected int FIRST = 1;
+  protected final int FIRST = 1;
 
   private static void configureLog4j() {
     PropertyConfigurator.configure(propertiesHelper.getProperty("log4jPropertiesPath"));
