@@ -24,7 +24,7 @@ public class BaseTest {
   public static PropertiesHelper propertiesHelper;
   protected static HomePage homePage;
   protected static PageFactoryManager pageFactoryManager;
-  protected static int timeout;
+  protected static long timeout;
   protected static String baseUrl;
   private static String hubUrl;
   protected final int FIRST = 1;
@@ -61,7 +61,7 @@ public class BaseTest {
     hubUrl = propertiesHelper.getProperty("hubUrl");
     baseUrl = propertiesHelper.getProperty("baseUrl");
 
-    timeout = Integer.parseInt(propertiesHelper.getProperty("timeout"));
+    timeout = Long.parseLong(propertiesHelper.getProperty("timeout"));
   }
 
   @AfterMethod
