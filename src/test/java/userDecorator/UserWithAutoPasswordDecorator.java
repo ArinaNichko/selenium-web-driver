@@ -1,6 +1,6 @@
 package userDecorator;
 
-import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class UserWithAutoPasswordDecorator extends UserDecorator {
   private final static int LENGTH = 8;

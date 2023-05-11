@@ -2,6 +2,7 @@
 <suite name="Smoke tests" parallel="classes">
     <listeners>
         <listener class-name="reporting.TestListener"/>
+        <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
     </listeners>
     <suite-files>
         <suite-file path="popupAndAlertsSuite.xml"/>

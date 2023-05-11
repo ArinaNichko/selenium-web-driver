@@ -2,7 +2,7 @@
 <suite name="Dropdowns, radioButtons, checkboxes">
     <test name="Dropdowns, radioButtons, checkboxes tests">
         <classes>
-            <class name="testCases.OptionsTests"/>
+            <class name="testCases.options.OptionsTests"/>
         </classes>
     </test>
 </suite>
